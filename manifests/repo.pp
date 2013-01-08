@@ -7,7 +7,7 @@ class passenger::repo {
   package{'passenger-release':
     ensure   => installed,
     provider => 'rpm',
-    source   => 'http://passenger.stealthymonkeys.com/${os_type}/passenger-release.noarch.rpm',
+    source   => "http://passenger.stealthymonkeys.com/${os_type}/passenger-release.noarch.rpm",
     before   => Package['passenger'],
   }
 }
