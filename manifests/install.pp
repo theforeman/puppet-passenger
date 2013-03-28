@@ -7,7 +7,7 @@ class passenger::install {
       include passenger::install::debian
     }
     default: {
-      fail("${::hostname}: This module does not support operatingsystem ${::operatingsystem}")
+      fail("${::hostname}: This module does not support operatingsystem ${::osfamily}")
     }
   }
 }
