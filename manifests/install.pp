@@ -1,13 +1,13 @@
 class passenger::install {
-  case $::operatingsystem {
-    redhat,centos,fedora,Scientific: {
+  case $::osfamily {
+    RedHat: {
       include passenger::install::redhat
     }
     Debian,Ubuntu: {
       include passenger::install::debian
     }
     default: {
-      fail("${::hostname}: This module does not support operatingsystem ${::operatingsystem}")
+      fail("${::hostname}: This module does not support operatingsystem ${::osfamily}")
     }
   }
 }
