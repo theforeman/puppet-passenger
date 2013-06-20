@@ -1,5 +1,5 @@
 name    'theforeman-passenger'
-version '1.2.0-rc2'
+version '1.2.0-rc3'
 source 'git://github.com/theforeman/puppet-passenger'
 author 'theforeman'
 license 'GPLv3+'
@@ -7,4 +7,4 @@ summary 'Phusion Passenger server configuration'
 description 'Module for configuring Phusion Passenger'
 project_page 'http://github.com/theforeman/foreman-installer'
 
-dependency 'theforeman/apache', '>= 1.2.0-rc2'
+dependency 'theforeman/apache', '>= 1.2.0-rc3'
