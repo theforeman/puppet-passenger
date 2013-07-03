@@ -1,16 +1,18 @@
 class passenger::install::redhat {
-  case $::operatingsystem {
-    'Fedora': {
-      if $::operatingsystemrelease < 17 {
-        include passenger::repo
-      }
-    }
-    default: {
-      if $::operatingsystemrelease =~ /5\..+/ {
-        include passenger::repo
-      }
-    }
-  }
+  if ! $passenger::custom_repo {
+	  case $::operatingsystem {
+	    'Fedora': {
+	      if $::operatingsystemrelease < 17 {
+	        include passenger::repo
+	      }
+	    }
+	    default: {
+	      if $::operatingsystemrelease =~ /5\..+/ {
+	        include passenger::repo
+	      }
+	    }
+	  }
+	 }
 
   package{'passenger':
     ensure  => installed,

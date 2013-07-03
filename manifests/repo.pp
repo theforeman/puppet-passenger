@@ -1,7 +1,7 @@
 class passenger::repo {
   $os_type = $::operatingsystem ? {
     'Fedora' => "fedora/${::operatingsystemrelease}",
-    default  => inline_template('rhel/<%= operatingsystemrelease.split(".")[0] %>')
+    default  => inline_template('rhel/<%= @operatingsystemrelease.split(".")[0] %>')
   }
 
   package{'passenger-release':
