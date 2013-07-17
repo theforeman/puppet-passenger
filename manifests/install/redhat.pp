@@ -6,7 +6,7 @@ class passenger::install::redhat {
       }
     }
     default: {
-      if $::operatingsystemrelease =~ /5\..+/ {
+      if $::operatingsystemrelease =~ /^5\..+/ {
         include passenger::repo
       }
     }
