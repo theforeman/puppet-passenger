@@ -1,6 +1,6 @@
 class passenger::install {
   case $::osfamily {
-    RedHat: {
+    RedHat, Linux: {
       include passenger::install::redhat
     }
     Debian: {
