@@ -1,10 +1,7 @@
-class passenger::install {
+class passenger::params {
   case $::osfamily {
     RedHat: {
-      include passenger::install::redhat
-    }
-    Debian: {
-      include passenger::install::debian
+      $passenger_root = '/usr/lib/ruby/gems/1.8/gems/passenger-4.0.5'
     }
     default: {
       fail("${::hostname}: This module does not support operatingsystem ${::osfamily}")
