@@ -45,6 +45,38 @@ describe 'passenger' do
     end
   end
 
+  context 'on Amazon Linux' do
+    let :facts do
+      {
+        :osfamily        => 'Linux',
+        :operatingsystem => 'Amazon',
+      }
+    end
+
+    it 'should install passenger' do
+      should contain_package('passenger').with({
+        :ensure  => 'installed',
+        :name    => 'mod_passenger',
+        :require => 'Class[Apache::Install]',
+        :before  => 'Class[Apache::Service]',
+      })
+    end
+  end
+
+  context 'on unsupported Linux operatingsystem' do
+    let :facts do
+      {
+        :hostname        => 'localhost',
+        :osfamily        => 'Linux',
+        :operatingsystem => 'Unsupported',
+      }
+    end
+
+    it 'should fail' do
+      expect { subject }.to raise_error(/#{facts[:hostname]}: This module does not support operatingsystem #{facts[:operatingsystem]}/)
+    end
+  end
+
   context 'on unsupported osfamily' do
     let :facts do
       {

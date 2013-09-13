@@ -14,6 +14,16 @@ class passenger::install {
         notify  => Class['apache::service'],
       }
     }
+    Linux: {
+      case $::operatingsystem {
+        Amazon: {
+          $package_name = 'mod_passenger'
+        }
+        default: {
+          fail("${::hostname}: This module does not support operatingsystem ${::operatingsystem}")
+        }
+      }
+    }
     default: {
       fail("${::hostname}: This module does not support osfamily ${::osfamily}")
     }
