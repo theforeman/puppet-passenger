@@ -5,7 +5,6 @@
 class passenger::install::scl($prefix) {
   package{ "${prefix}-rubygem-passenger-native":
     ensure  => installed,
-    require => Class['apache::install'],
     before  => Class['apache::service'],
   }
 }

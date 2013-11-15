@@ -7,4 +7,4 @@ summary 'Phusion Passenger server configuration'
 description 'Module for configuring Phusion Passenger'
 project_page 'http://github.com/theforeman/foreman-installer'
 
-dependency 'theforeman/apache', '>= 1.3.0'
+dependency 'puppetlabs/apache', '>= 0.9.0'
